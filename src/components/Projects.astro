@@ -1,0 +1,145 @@
+---
+import GitHub from "./icons/GitHub.astro"
+import NextJS from "./icons/NextJS.astro"
+import Tailwind from "./icons/Tailwind.astro"
+import Link from "./icons/Link.astro"
+import LinkButton from "./LinkButton.astro"
+import Mongo from "./icons/Mongo.astro"
+import CSS from './icons/Css.astro'
+import Javascript from "./icons/Javascript.astro"
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  MONGODB: {
+    name: "MongoDB",
+    class: "bg-[#589636] text-white",
+    icon: Mongo,
+  },
+  CSS: {
+    name: "CSS",
+    class: "bg-[#003159] text-white",
+    icon: CSS,
+  },
+  JAVASCRIPT: {
+    name: "Javascript",
+    class: "bg-[#f0db4f] text-white",
+    icon: Javascript,
+  }
+}
+const PROJECTS = [
+  {
+    title: "All Apps - Online AppStore",
+    description:
+      "AppStore para apps que no cuentan con una AppStore aquellas que debes buscar pagina por pagina para descargarla, hecho para computadoras principalmente. ",
+    link: "https://aapps.vercel.app/",
+    github: "https://github.com/DuvanLT/AAPPS",
+    image: "/projects/All-apps.webp",
+    tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.MONGODB],
+  },
+  {
+    title: "Markit - E-commerce",
+    description:
+      "E-commerce implementando la API Fake Store con navegacion infinita entre productos.",
+    link: "https://e-commerce-kappa-ochre.vercel.app/",
+    github: "https://github.com/DuvanLT/E-commerce",
+    image: "/projects/Markit.webp",
+    tags: [TAGS.NEXT, TAGS.CSS],
+  },
+  {
+    title: "PA' LA COCINA",
+    description:
+      "Pagina de recetas de comidas Colombianas con buenas practicas de SEO.",
+    link: "https://cook-duvanlts-projects.vercel.app/",
+    image: "/projects/palacocina.webp",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
+    title: "Mustang Landing Page",
+    description:
+      "Rediseño de la pagina Mustang.Co permite ver modelos recientes hasta la sexta generacion.",
+    link: "https://mustang-landing.vercel.app/",
+    image: "/projects/Mustang.webp",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
+    title: "Generador de contraseñas",
+    description:
+      "Generador de contraseñas para más seguridad, contraseñas aleatorias y unicas.",
+    link: "https://starlit-chimera-efde76.netlify.app/",
+    github: "https://github.com/DuvanLT/RandomPassWords",
+    image: "/projects/GeneradorContraseñas.webp",
+    tags: [TAGS.JAVASCRIPT, TAGS.CSS],
+  },
+  {
+    title: "Business - Pixel Perfect",
+    description:
+      "Pixel perfect de diseño sacado en NicePage.",
+    link: "https://incandescent-moonbeam-657cd0.netlify.app/",
+    image: "/projects/Business.webp",
+    tags: [TAGS.JAVASCRIPT, TAGS.CSS],
+  },
+]
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+  <div class="w-full md:w-1/2">
+    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+      <img alt="" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+    </div>
+  </div>
+
+  <div class="w-full md:w-1/2 md:max-w-lg">
+    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+      {title}
+    </h3>
+    <div class="flex flex-wrap mt-2">
+      <ul class="flex flex-row mb-2 gap-x-2">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+              >
+                <tag.icon class="size-4" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+      <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+      <footer class="flex items-end justify-start mt-4 gap-x-4">
+          {github && (
+            <LinkButton href={github}>
+              <GitHub class="size-6" />
+              Code
+              
+            </LinkButton>
+          )}
+          {link && (
+            <LinkButton href={link}>
+              <Link class="size-4" />
+              Preview
+            </LinkButton>
+          )}
+        </footer>
+    </div>
+  </div>
+</article>
+    ))
+  }
+</div>
+
+
+

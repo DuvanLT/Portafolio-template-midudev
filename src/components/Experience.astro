@@ -1,0 +1,24 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCE = [
+  {
+    date: "Febrero 2024",
+    title: "Desarrollador Frontend",
+    company: "Foo Talent Group",
+    description:
+      "Gestioné el flujo del proyecto en GitHub, revisando el código entrante, detectando errores y realizando sugerencias. Participé en las revisiones de Sprint junto al equipo y mantuve comunicación directa con el cliente para entender sus necesidades, implementándolas de manera efectiva junto al resto del equipo.",
+    description2: "Me adapte a las tecnologias y herramientas las cuales no manejaba y supereando desafíos como cambios de última hora por parte del cliente y resolviendo errores persistentes con eficacia y compromiso.  ",
+    link: "https://www.linkedin.com/posts/duvan-mancilla_html-css-react-activity-7187063656063381505-FuTM ",
+  },
+]
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>
