@@ -7,6 +7,7 @@ import LinkButton from "./LinkButton.astro"
 import Mongo from "./icons/Mongo.astro"
 import CSS from './icons/Css.astro'
 import Javascript from "./icons/Javascript.astro"
+import Express from "./icons/Express.astro"
 
 const TAGS = {
   NEXT: {
@@ -33,6 +34,11 @@ const TAGS = {
     name: "Javascript",
     class: "bg-[#f0db4f] text-white",
     icon: Javascript,
+  },
+  EXPRESS:{
+    name: "Express",
+    class: "bg-[#ffffff] text-black",
+    icon: Express,
   }
 }
 const PROJECTS = [
@@ -43,7 +49,7 @@ const PROJECTS = [
     link: "https://aapps.vercel.app/",
     github: "https://github.com/DuvanLT/AAPPS",
     image: "/projects/All-apps.webp",
-    tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.MONGODB],
+    tags: [TAGS.NEXT, TAGS.TAILWIND, TAGS.MONGODB, TAGS.EXPRESS],
   },
   {
     title: "Markit - E-commerce",
